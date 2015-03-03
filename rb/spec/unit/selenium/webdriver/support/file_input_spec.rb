@@ -55,7 +55,7 @@ module Selenium
           FileInput.new(file_inputs[2]).should be_multiple
           FileInput.new(file_inputs[3]).should be_multiple
         end
-        
+
         it 'allows one file to be attached to a non multiple file input' do
           filename = 'tmp/file1'
           file_input.should_receive(:send_keys).
@@ -72,7 +72,7 @@ module Selenium
 
           FileInput.new(multi_file_input).attach_files(*filenames)
         end
-        
+
         it 'allows Pathname convertible objects to be used' do
           files = [Tempfile.new('test'), Pathname.new('/tmp/file2')]
           filenames = [files[0].path.to_s, files[1].to_s]
@@ -81,14 +81,14 @@ module Selenium
                         once
           FileInput.new(multi_file_input).attach_files(files)
         end
-        
+
         it 'does not allow multiple files to be attached to a single file input' do
           filenames = ['tmp/file1', '/tmp/file2']
           lambda {
             FileInput.new(file_input).attach_files(*filenames)
           }.should raise_error(ArgumentError)
         end
-        
+
       end # FileInput
 
     end # Support

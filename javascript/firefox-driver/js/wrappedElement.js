@@ -216,7 +216,10 @@ WebElement.sendKeysToElement = function(respond, parameters) {
     var inputtype = element.getAttribute('type');
     if (inputtype && inputtype.toLowerCase() == 'file') {
       if (element.getAttribute('multiple')) {
-        element.mozSetFileNameArray(parameters.value, parameters.value.length)
+        filenames=[];
+        element.mozGetFileNameArray(0, filenames);
+        filenames.push(parameters.value.join(''));
+        element.mozSetFileNameArray(filenames, filenames.length)
       } else {
         element.value = parameters.value.join('');
       }

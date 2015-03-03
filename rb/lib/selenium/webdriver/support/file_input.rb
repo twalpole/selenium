@@ -13,13 +13,13 @@ module Selenium
           unless tag_name.downcase == "input"
             raise ArgumentError, "unexpected tag name #{tag_name.inspect}"
           end
-          
+
           tag_type = element.attribute(:type)
-          
+
           unless tag_type.downcase == "file"
             raise ArgumentError, "unexpected input type #{tag_type}"
           end
-          
+
 
           @element = element
           @multi   = ![nil, "false"].include?(element.attribute(:multiple))
@@ -41,7 +41,7 @@ module Selenium
         # @param [String, Pathname, File, Array]
         #
         def attach_files(*files)
-          filenames = files.flatten.map do |f| 
+          filenames = files.flatten.map do |f|
             if f.respond_to? :path
               f.path.to_s
             else
@@ -52,10 +52,11 @@ module Selenium
           if !multiple? and filenames.length > 1
             raise ArgumentError, "too many files to attach to a non-multiple file input"
           end
-          
-          @element.send_keys(*filenames)
+
+          filenames.each do |fn|
+            @element.send_keys(fn)
+          end
         end
-                
       end # FileInput
     end
   end
