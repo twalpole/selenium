@@ -181,6 +181,15 @@ describe "Element" do
     end
   end
 
+  it "should do html5 drag and drop" do
+    driver.navigate.to url_for("html5DragAndDropTest.html")
+    drag1 = driver.find_element(:id, "drag1")
+    drop1 = driver.find_element(:id, "drop1")
+
+    driver.action.drag_and_drop(drag1, drop1)
+    expect(driver.find_element(:css, '#drop1 > #drag1')).to be_displayed
+  end
+
   not_compliant_on :browser => [:android] do # android returns 'green'
     it "should get css property" do
       driver.navigate.to url_for("javascriptPage.html")
