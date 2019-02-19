@@ -1,12 +1,5 @@
 AllCops:
   TargetRubyVersion: 2.3
-<<<<<<< HEAD
-=======
-
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
->>>>>>> Update to Ruby 2.3 requirement and fix rubocop warning
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
