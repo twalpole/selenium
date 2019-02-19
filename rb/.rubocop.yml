@@ -53,6 +53,9 @@ Naming/UncommunicativeMethodParamName:
 Style/CommentedKeyword:
   Enabled: false
 
+Style/CommentedKeyword:
+  Enabled: false
+
 # TODO: Refactor Chrome::Bridge#create_capabilities
 Metrics/PerceivedComplexity:
   Max: 11
