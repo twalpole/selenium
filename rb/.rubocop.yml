@@ -1,5 +1,12 @@
 AllCops:
   TargetRubyVersion: 2.3
+<<<<<<< HEAD
+=======
+
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+>>>>>>> Update to Ruby 2.3 requirement and fix rubocop warning
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
@@ -49,6 +56,9 @@ Naming/UncommunicativeMethodParamName:
 #     - 'lib/selenium/webdriver/common/socket_poller.rb'
 #     - 'lib/selenium/webdriver/remote/legacy_bridge.rb'
 #     - 'lib/selenium/webdriver/remote/w3c_bridge.rb'
+
+Style/CommentedKeyword:
+  Enabled: false
 
 Style/CommentedKeyword:
   Enabled: false
@@ -122,9 +132,6 @@ Layout/EmptyLinesAroundClassBody:
   Enabled: false
 
 Layout/EmptyLinesAroundModuleBody:
-  Enabled: false
-
-Style/StringLiterals:
   Enabled: false
 
 Style/Dir:
