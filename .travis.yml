@@ -144,12 +144,15 @@ matrix:
     - env: CHROME=1 TASK=//rb:chrome-test
       <<: *ruby
       <<: *chrome
+      rvm: 2.4
     - env: MARIONETTE=1 TASK=//rb:firefox-test
       <<: *ruby
       <<: *firefox-latest
+      rvm: 2.5
     - env: CHROME=1 TASK=//rb:remote-chrome-test
       <<: *ruby
       <<: *chrome
+      rvm: 2.6
     - env: MARIONETTE=1 TASK=//rb:remote-firefox-test
       <<: *ruby
       <<: *firefox-latest
