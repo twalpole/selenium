@@ -142,6 +142,9 @@ module Selenium
         def remote_capabilities
           opt = {}
           browser_name = case browser
+                         when :chrome
+                           opt[:w3c] = false
+                           :chrome
                          when :ff_esr
                            unless ENV['FF_ESR_BINARY']
                              raise DriverInstantiationError, "ENV['FF_ESR_BINARY'] must be set to test Firefox ESR"

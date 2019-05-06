@@ -22,7 +22,7 @@ require_relative '../spec_helper'
 module Selenium
   module WebDriver
     module Chrome
-      describe Driver, only: {driver: :chrome} do
+      describe Driver, only: [{driver: :chrome}, {driver: :remote, browser: :chrome}] do
         it 'accepts an array of custom command line arguments' do
           create_driver!(args: ['--user-agent=foo;bar']) do |driver|
             driver.navigate.to url_for('click_jacker.html')

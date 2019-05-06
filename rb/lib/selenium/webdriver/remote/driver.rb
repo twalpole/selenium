@@ -37,6 +37,12 @@ module Selenium
         def initialize(opts = {})
           listener = opts.delete(:listener)
           @bridge = Bridge.handshake(opts)
+
+          if @bridge.browser == :chrome
+            extend DriverExtensions::HasNetworkConditions
+            @bridge.extend WebDriver::Chrome::Bridge
+          end
+
           if @bridge.dialect == :oss
             extend DriverExtensions::HasTouchScreen
             extend DriverExtensions::HasLocation
