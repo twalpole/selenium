@@ -25,7 +25,8 @@ module Selenium
         COMMANDS = {
           get_network_conditions: [:get, 'session/:session_id/chromium/network_conditions'],
           set_network_conditions: [:post, 'session/:session_id/chromium/network_conditions'],
-          send_command: [:post, 'session/:session_id/goog/cdp/execute']
+          send_command: [:post, 'session/:session_id/goog/cdp/execute'],
+          get_available_log_types: [:get, 'session/:session_id/log/types']
         }.freeze
 
         def commands(command)
@@ -44,6 +45,10 @@ module Selenium
           execute :set_network_conditions, {}, {network_conditions: conditions}
         end
 
+        def available_log_types
+          types = execute :get_available_log_types
+          Array(types).map(&:to_sym)
+        end
       end # Bridge
     end # Chrome
   end # WebDriver
