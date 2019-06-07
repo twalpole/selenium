@@ -147,7 +147,8 @@ module Selenium
             # server extensions
             #
 
-            upload_file: [:post, 'session/:session_id/se/file']
+            upload_file: [:post, 'session/:session_id/se/file'],
+            get_available_log_types: [:get, 'session/:session_id/log/types']
           }.freeze
 
         end # Bridge
